@@ -16,3 +16,6 @@ eval $(minikube docker-env)
 docker build -t model-train:default -f dockerfile-train .
 docker build -t model-service:default -f dockerfile-service .
 minikube image load model-train:default
+
+CONSULTAR ERRORS PODS
+kubectl logs nom_pod
