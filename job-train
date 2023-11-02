@@ -1,21 +1,32 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: job-train
+  name: model-train-job
 spec:
   template:
+    metadata:
+      name: model-train-job-pod
     spec:
       containers:
-      - name: model-train
-        image: model-train:default
-        command: ["python", "main-train.py"]
-        env: 
-        - name: MODEL_PATH
-          value: /model/model.npy
+        - name: model-train
+          image: model-train:default
+          command: ["python", "main-train.py"]
+          env:
+            - name: MODEL_PATH
+              value: /model/model.npy
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "128Mi"
+            requests:
+              cpu: "250m"
+              memory: "64Mi"
+          volumeMounts:
+            - name: model-data
+              mountPath: "/model"
       volumes:
-      - name: volume-tmp
-        hostPath: 
-         path: /tmp
-         type: Directory
+        - name: model-data
+          hostPath:
+            path: "/tmp"
       restartPolicy: Never
   backoffLimit: 4
