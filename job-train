@@ -1,11 +1,11 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: model-train-job
+  name: train-job
 spec:
   template:
     metadata:
-      name: model-train-job-pod
+      name: train-job-pod
     spec:
       containers:
         - name: model-train
