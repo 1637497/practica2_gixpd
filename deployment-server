@@ -17,19 +17,18 @@ spec:
       containers:
       - name: model-server
         image: model-server:default
-        command: ["flask", "--app", "main-server", "run", "--host=0.0.0.0"]        
-        ports:
-        - containerPort: 5000
+        command: ["flask", "--app", "main-server", "run", "--host=0.0.0.0"]
         env: 
         - name: MODEL_PATH
-          value: /model/model.npy
+          valueFrom: 
+            configMapKeyRef:
+              name: configmap
+              key: MODEL_TRAIN
         volumeMounts:
-          - name: model-data
-            mountPath: "/model"
+        - name: model-data
+          mountPath: "/model"       
       volumes:
       - name: model-data
         hostPath: 
           path: "/tmp"
           type: Directory
-          
-
