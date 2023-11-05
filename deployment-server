@@ -23,6 +23,9 @@ spec:
         env: 
         - name: MODEL_PATH
           value: /model/model.npy
+        volumeMounts:
+          - name: model-data
+            mountPath: "/model"
       volumes:
       - name: model-data
         hostPath: 
