@@ -25,9 +25,9 @@ spec:
               key: MODEL_PATH
         volumeMounts:
         - name: model-data
-          mountPath: "\model\model.npy"       
+          mountPath: \model\model.npy
       volumes:
       - name: model-data
         hostPath: 
-          path: "/tmp"
+          path: /tmp
           type: Directory
