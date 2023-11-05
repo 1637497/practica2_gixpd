@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: configmap
+  name: my-configmap
 data:
-  MODEL_PATH: /model/model.npy
+  MODEL_PATH: "\model\model.npy"
+
