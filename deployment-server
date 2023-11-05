@@ -22,10 +22,10 @@ spec:
           valueFrom: 
             configMapKeyRef:
               name: configmap
-              key: MODEL_TRAIN
+              key: MODEL_PATH
         volumeMounts:
         - name: model-data
-          mountPath: "/model"       
+          mountPath: "\model\model.npy"       
       volumes:
       - name: model-data
         hostPath: 
