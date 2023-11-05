@@ -17,7 +17,6 @@ spec:
       containers:
       - name: model-server
         image: model-server:default
-        command: ["flask", "--app", "main-server", "run", "--host=0.0.0.0"]
         env: 
         - name: MODEL_PATH
           valueFrom: 
