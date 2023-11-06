@@ -23,7 +23,7 @@ spec:
               memory: "64Mi"
           volumeMounts:
             - name: model-data
-              mountPath: "/model"
+              mountPath: "/tmp"
       volumes:
         - name: model-data
           hostPath:
