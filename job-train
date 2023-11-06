@@ -13,7 +13,7 @@ spec:
           command: ["python", "main-train.py"]
           env:
             - name: MODEL_PATH
-              value: /model/model.npy
+              value: /tmp/model.npy
           resources:
             limits:
               cpu: "500m"
