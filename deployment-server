@@ -23,16 +23,9 @@ spec:
             configMapKeyRef:
               name: configmap
               key: MODEL_PATH
-        resources:
-          limits:
-            cpu: "500m"
-            memory: "128Mi"
-          requests:
-            cpu: "250m"
-            memory: "64Mi"
         volumeMounts:
         - name: model-data
-          mountPath: /tmp
+          mountPath: /model/model.npy
       volumes:
       - name: model-data
         hostPath: 
