@@ -26,6 +26,28 @@ spec:
         volumeMounts:
         - name: model-data
           mountPath: /model/model.npy
+                resources:
+          limits:
+            cpu: "500m"
+            memory: "128Mi"
+          requests:
+            cpu: "250m"
+            memory: "64Mi"
+        volumeMounts:
+        - name: model-data
+          mountPath: /tmp
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 5000
+          initialDelaySeconds: 20
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 5000
+          initialDelaySeconds: 20
+          periodSeconds: 10
       volumes:
       - name: model-data
         hostPath: 
