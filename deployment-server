@@ -26,7 +26,7 @@ spec:
         volumeMounts:
         - name: model-data
           mountPath: /model/model.npy
-                resources:
+        resources:
           limits:
             cpu: "500m"
             memory: "128Mi"
