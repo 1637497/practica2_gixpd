@@ -10,13 +10,14 @@ DOCKER
   
   ELIMINAR IMATGES
   docker rmi imatge
-  
+
+
+KUBERNETES  
   CARRERGAR IMATGE A MINIKUBE
   eval $(minikube docker-env)
   docker build -t model-train:default -f dockerfile-train .
   docker build -t model-server:default -f dockerfile-server .
 
-KUBERNETES
   EXECUTAR KUBERNETES
   kubectl apply -f job-train.yaml
   kubectl apply -f configmap.yaml
